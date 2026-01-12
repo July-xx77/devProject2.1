@@ -1,0 +1,21 @@
+# 环境相关
+.env
+venv/
+env/
+
+# Django
+db.sqlite3
+*.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 编辑器
+.vscode/
+.idea/
+.DS_Store
+
+# 静态文件（部署时自动生成）
+staticfiles/
