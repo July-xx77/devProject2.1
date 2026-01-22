@@ -2,7 +2,7 @@
 {% block content %}
     <div class="card mb-3">
         <div class="card-header">
-            {{ post.content|truncatechars:50 }}
+            {{ post.title }}
         </div>
         <div class="card-body">
             <p class="card-text">{{ post.content|linebreaksbr }}</p>
