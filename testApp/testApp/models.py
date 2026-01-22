@@ -13,8 +13,8 @@ class Post(models.Model):
     # 投稿者：Userモデルと「一対多」の関係で紐づける
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    is_anonymous = models.BooleanField(default=False)
-
+    is_anonymous = models.BooleanField(default=False) 
+    
     def __str__(self):
         # 管理画面などで見やすいように、オブジェクトの文字列表現を定義
         return f'{self.author.username}: {self.content[:20]}'

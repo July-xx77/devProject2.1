@@ -10,6 +10,11 @@ from django.views.generic import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from .serializers import PostSerializer
 from rest_framework import generics
+from django.contrib.auth import logout
+
+def custom_logout(request):
+    logout(request)
+    return redirect('timeline')
 
 def timeline(request):
     posts = Post.objects.all().order_by('-created_at')
@@ -93,7 +98,3 @@ class SignUpView(CreateView):
     template_name = 'signup.html'
 
 
-from django.http import HttpResponse
-
-def test_page(request):
-    return HttpResponse("✅ 服务器正常运行！")

@@ -11,12 +11,5 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')), 
     path('signup/', views.SignUpView.as_view(), name='signup'),
     path('api/posts/', PostListAPIView.as_view()), 
-]
-
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    path('test/', views.test_page, name='test'),  # 测试用
-    # ... 你的其他路由
+    path('logout/', views.custom_logout, name='logout'),
 ]
