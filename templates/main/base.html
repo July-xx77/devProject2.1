@@ -24,34 +24,33 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        {% if user.is_authenticated %}
-          <li class="nav-item">
+    <ul class="navbar-nav ms-auto">
+    {% if user.is_authenticated %}
+        <li class="nav-item">
             <span class="navbar-text me-2">
-              ようこそ, {{ user.username }} さん
+                ようこそ, {{ user.username }} さん
             </span>
-          </li>
-          <li class="nav-item">
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="{% url 'post_create' %}">投稿</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">ログアウト</a>
-          </li>
-        {% else %}
-          <li class="nav-item">
+        </li>
+        <li class="nav-item">
+            <form method="post" action="{% url 'logout' %}" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="btn nav-link" style="background: none; border: none; color: inherit; padding: 8px 16px;">
+                    ログアウト
+                </button>
+            </form>
+        </li>
+    {% else %}
+        <li class="nav-item">
             <a class="nav-link" href="{% url 'login' %}">ログイン</a>
-          </li>
-          <li class="nav-item">
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="{% url 'signup' %}">ユーザー登録</a>
-          </li>
-              <form method="post" action="{% url 'logout' %}" class="d-inline">
-              {% csrf_token %}
-              <button type="submit" class="btn nav-link" style="background: none; border: none; color: inherit; padding: 8px 16px;">
-            ログアウト
-        </button>
-          </li>
-        {% endif %}
-      </ul>
+        </li>
+    {% endif %}
+</ul>
     </div>
   </div>
 </nav>

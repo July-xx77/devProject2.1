@@ -129,3 +129,6 @@ LOGIN_REDIRECT_URL = '/'  # 假设 '/' 是您的 timeline 页面
 # 或者使用您在 urls.py 中定义的 timeline 名称
 # LOGIN_REDIRECT_URL = reverse_lazy('timeline') # 注意：如果使用 reverse_lazy 需要在 settings.py 顶部导入
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+ALLOWED_HOSTS = ['devproject-uxxv.onrender.com', 'localhost', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://devproject-uxxv.onrender.com']
